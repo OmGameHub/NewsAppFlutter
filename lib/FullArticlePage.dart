@@ -65,7 +65,18 @@ class _FullArticlePageState extends State<FullArticlePage> {
 
                     // article image start
                     article['urlToImage'] == null?
-                    Container() :
+                    Container(
+                      height: 200,
+                      width: double.infinity,
+                      margin: EdgeInsets.only(bottom: 16),
+                      alignment: Alignment.center,
+                      child: Image(
+                        height: 200,
+                        width: double.infinity,
+                        image: AssetImage('assets/images/no_image.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ) :
                     Container(
                       height: 200,
                       width: double.infinity,

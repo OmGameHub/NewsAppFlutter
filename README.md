@@ -1,16 +1,32 @@
-# news_app
+# News App
+News app is flutter base project. In this app user can read news headlines by category wise form the internet. 
+API use in this project [News.org](https://newsapi.org).
 
-A new Flutter project.
+#### API Key Note
+You need to insert your API key.
+Go to a file named `MyHomePage.dart` and find the value of apiKey.
+Replace "test" with "YOUR-API-KEY".
+```
+String apiKey = 'YOUR-API-KEY';
+```
 
-## Getting Started
+### Features
 
-This project is a starting point for a Flutter application.
+* Splash screen
+* Navigation Drawer
+* Share news
+* Read news
+* Open full news in web browser
+* Dynamic Theme
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### ScreenShots
+<p>
+<img src="./screenshots/flutter_00.jpeg" alt="splash page"  width="200" />
+<img src="./screenshots/flutter_01.png" alt="home page"  width="200" />
+<img src="./screenshots/flutter_02.png" alt="app drawer" width="200" />
+<img src="./screenshots/flutter_03.png" alt="business news page" width="200" />
+<img src="./screenshots/flutter_06.jpeg" alt="full article page " width="200" />
+<img src="./screenshots/flutter_07.jpeg" alt="app drawer dark theme" width="200" />
+<img src="./screenshots/flutter_04.jpeg" alt="technology news page dark theme" width="200" />
+<img src="./screenshots/flutter_05.jpeg" alt="full article page dark theme" width="200" />
+</p>

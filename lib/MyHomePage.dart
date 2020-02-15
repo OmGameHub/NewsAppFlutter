@@ -4,7 +4,7 @@ import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:convert';
 import 'dart:io';
-
+import 'ApiDate.dart';
 import 'FullArticlePage.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -15,7 +15,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   String topHeadlinesApi = 'https://newsapi.org/v2/top-headlines?country=in&';
-  String apiKey = '';    // <= TODO insert api key from newsapi.org
+  String apiKey = 'test';    // <= TODO insert api key from newsapi.org
   String category = '';
   String appBarTitle = 'News App';
 
@@ -69,13 +69,13 @@ class _MyHomePageState extends State<MyHomePage> {
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) 
       {
 
-        if (this.apiKey.isEmpty) {
-          print("Plese insert your api key");
+        if (this.apiKey == 'test' || this.apiKey.isEmpty) {
           setState(() {
-            this.isInternetConn = false;
-            this.message = "Plese insert your api key";
+            articles = apiDate['articles'];
+            hasData = true;
+            this.isInternetConn = true;
           });
-          
+          print("Plese insert your api key");
           return;
         }
 
@@ -139,24 +139,26 @@ class _MyHomePageState extends State<MyHomePage> {
             Container() :
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                articles[index]['urlToImage'].startsWith('https://') ||
-                articles[index]['urlToImage'].startsWith('http://')?
-                articles[index]['urlToImage'] :
-                'http://${articles[index]['urlToImage']}',
-
-                loadingBuilder: (context, child, progress) => 
-                  progress == null? 
-                  child : 
-                  Container(
-                    height: 100,
-                    width: 100,
-                    padding: EdgeInsets.all(40),
-                    child: CircularProgressIndicator()
-                  ),
-                height: 100,
-                width: 100,
-                fit: BoxFit.cover,
+              child: Container(
+                color: Color(0xFFEAF0F1),
+                child: Image.network(
+                  articles[index]['urlToImage'].startsWith('https://') ||
+                  articles[index]['urlToImage'].startsWith('http://')?
+                  articles[index]['urlToImage'] :
+                  'http://${articles[index]['urlToImage']}',
+                  loadingBuilder: (context, child, progress) => 
+                    progress == null? 
+                    child : 
+                    Container(
+                      height: 100,
+                      width: 100,
+                      padding: EdgeInsets.all(40),
+                      child: CircularProgressIndicator()
+                    ),
+                  height: 100,
+                  width: 100,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             // article image end  
